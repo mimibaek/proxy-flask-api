@@ -3,10 +3,14 @@ import requests
 
 app = Flask(__name__)
 
+@app.route("/")  # 👉 기본 루트 경로 추가
+def home():
+    return "Proxy Flask API is running!"
+
 def fetch_from_foodsafety(entp_name, site_addr):
     api_url = "https://apis.data.go.kr/B553748/CertImgListService/getCertImgListService"
     params = {
-        "serviceKey": "2e826ed6953145f789f5",
+        "serviceKey": "2e826ed6953145f789f5",  # 임시 공개키
         "returnType": "json",
         "entpName": entp_name,
         "siteAddr": site_addr,
