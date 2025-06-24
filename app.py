@@ -14,7 +14,7 @@ def fetch_from_foodsafety(entp_name, site_addr):
         "numOfRows": 10
     }
     try:
-        res = requests.get(api_url, params=params, timeout=10)
+        res = requests.get(api_url, params=params, timeout=10, verify=False)
         return res.json()
     except Exception as e:
         return {"error": str(e)}
